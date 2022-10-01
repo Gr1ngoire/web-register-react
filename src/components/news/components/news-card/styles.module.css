@@ -1,0 +1,25 @@
+.cardWrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border: 1px solid black;
+}
+
+.newsImg {
+    width: 100%;
+    height: 200px;
+    border-radius: 10px;
+}
+
+.newsInfoSection {
+    display: flex;
+    flex-direction: column;
+}
+
+.newsTitle {
+    margin-bottom: 5px;
+}
+
+.newsDescription {
+    margin: 0;
+}

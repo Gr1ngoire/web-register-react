@@ -1,0 +1,1 @@
+export {type NewsItemDto} from './news.type'
