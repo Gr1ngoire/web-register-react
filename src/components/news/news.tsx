@@ -47,6 +47,20 @@ const News: FC = () => {
             description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque dolores iusto laudantium praesentium sapiente. Asperiores at dolore et maiores maxime neque nihil obcaecati vitae. Aliquam animi asperiores aspernatur at beatae culpa cum cupiditate dolorem enim eos esse eum ex hic ipsam labore maiores minima nihil nobis non officia officiis placeat quaerat quasi quibusdam quisquam quos reiciendis rem, sit voluptates voluptatibus.",
             postDate: "22.09.2022",
             imgUrl: "https://media.istockphoto.com/photos/young-woman-in-spiritual-pose-holding-the-light-picture-id1267497795?k=20&m=1267497795&s=612x612&w=0&h=lYZv6svmoUf4WNFYM5X3egYXSkpelyE218xhepqKoOA="
+        },
+        {
+            id: 7,
+            title: "Test news 7",
+            description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque dolores iusto laudantium praesentium sapiente. Asperiores at dolore et maiores maxime neque nihil obcaecati vitae. Aliquam animi asperiores aspernatur at beatae culpa cum cupiditate dolorem enim eos esse eum ex hic ipsam labore maiores minima nihil nobis non officia officiis placeat quaerat quasi quibusdam quisquam quos reiciendis rem, sit voluptates voluptatibus.",
+            postDate: "22.09.2022",
+            imgUrl: "https://media.istockphoto.com/photos/brecon-beacons-landscape-picture-id1308867983?k=20&m=1308867983&s=612x612&w=0&h=6aClFjcePDzeB9Uqsq5tC3VKP2NAj1VZLM6zouaRixg="
+        },
+        {
+            id: 8,
+            title: "Test news 8",
+            description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque dolores iusto laudantium praesentium sapiente. Asperiores at dolore et maiores maxime neque nihil obcaecati vitae. Aliquam animi asperiores aspernatur at beatae culpa cum cupiditate dolorem enim eos esse eum ex hic ipsam labore maiores minima nihil nobis non officia officiis placeat quaerat quasi quibusdam quisquam quos reiciendis rem, sit voluptates voluptatibus.",
+            postDate: "22.09.2022",
+            imgUrl: "https://media.istockphoto.com/photos/sunset-on-a-river-picture-id1045950488?k=20&m=1045950488&s=612x612&w=0&h=N5kXxUPG5ca10UOLKKm2eP4ftfiSmemHTXcUqmugrJ8="
         }
     ]
 

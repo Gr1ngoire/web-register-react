@@ -5,10 +5,29 @@
 }
 
 :root {
+    display: flex;
+    flex-grow: 1;
+    --primary-text-color: white;
+    --secondary-text-color: #5F5EB8;
+    --primary-background-color: #ffffff;
+    --secondary-background-color: #180E36;
     font-family: 'Nanum Gothic Coding', monospace;
 }
 
 body {
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+}
+
+
+a {
+    text-decoration: none;
+    color: var(--primary-text-color);
+}
+
+a:hover {
+    color: var(--secondary-text-color);
 }
