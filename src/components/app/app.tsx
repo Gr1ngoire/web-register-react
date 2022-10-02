@@ -8,6 +8,7 @@ import {Header} from "../common/header/header";
 import {Footer} from "../common/footer/footer";
 import {Faq} from "../faq/faq";
 import {Contacts} from "../contacts/contacts";
+import {Students} from "../students/students";
 
 function App() {
     return (
@@ -17,6 +18,7 @@ function App() {
                 <Route path={AppRoutes.root} element={<News/>}/>
                 <Route path={AppRoutes.faq} element={<Faq/>}/>
                 <Route path={AppRoutes.contacts} element={<Contacts/>}/>
+                <Route path={AppRoutes.students} element={<Students/>}/>
             </Routes>
             <Footer/>
         </>

@@ -1,0 +1,1 @@
+export {type StudentItemDto} from './student-item-dto.type'

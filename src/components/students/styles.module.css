@@ -1,0 +1,42 @@
+.studentsWrapper {
+    margin: 100px 0 40px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--secondary-background-color);
+}
+
+.tableWrapper {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.studentsTable {
+    padding: 40px 40px 40px 40px;
+    text-align: left;
+}
+
+.studentsTable th {
+    padding: 10px;
+}
+
+.studentsTable td {
+    padding: 10px;
+}
+
+@media (max-width: 1200px) {
+
+    .studentsWrapper {
+        margin-top: 200px;
+    }
+
+    .tableWrapper {
+        padding-left: 200px;
+        overflow-x: scroll;
+    }
+
+}
