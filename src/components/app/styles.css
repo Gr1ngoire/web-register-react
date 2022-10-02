@@ -43,6 +43,17 @@ button {
     font-family: 'Nanum Gothic Coding', monospace;
 }
 
+select {
+    height: 40px;
+    border: 1px solid var(--secondary-background-color);
+    border-radius: 10px;
+    font-family: 'Nanum Gothic Coding', monospace;
+}
+
+select:focus {
+    border-width: 2px;
+}
+
 a {
     text-decoration: none;
     color: var(--primary-text-color);

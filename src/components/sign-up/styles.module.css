@@ -1,5 +1,4 @@
 .signUpWrapper {
-    height: calc(100vh - 146px);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -7,24 +6,87 @@
 }
 
 .signUpForm {
+    margin: 100px 0 40px 0;
     display: flex;
     flex-direction: column;
-    width: 300px;
+    width: 500px;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 1px 1px 4px 4px var(--secondary-background-color);
 }
 
-.signUpForm input {
-    margin-top: 20px;
-}
-
 .signUpForm button {
-    width: 25%;
+    word-break: break-all;
     align-self: center;
     margin: 60px 0 10px 0;
 }
 
 .formHeading {
     text-align: center;
+}
+
+.formLabel {
+    margin: 41px 0 5px 0;
+}
+
+.signUpButton {
+    width: 30%;
+    height: 39px;
+    border: 2px solid var(--secondary-background-color);
+    border-radius: 20px;
+    background: var(--primary-background-color);
+}
+
+.signUpButton:hover {
+    cursor: pointer;
+    background: var(--secondary-background-color);
+    color: white;
+    transition: 0.2s;
+}
+
+.switchWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.switchWrapper a {
+    color: var(--secondary-background-color);
+}
+
+.switchWrapper a:hover {
+    color: var(--primary-text-color)
+}
+
+.switchWrapper button {
+    height: 39px;
+    border: 2px solid var(--secondary-background-color);
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background: var(--primary-background-color);
+    margin: 0;
+}
+
+.switchWrapper button:hover {
+    cursor: pointer;
+    background: var(--secondary-background-color);
+    color: white;
+    transition: 0.2s;
+}
+
+.switch {
+    padding: 10px;
+    color: var(--primary-text-color);
+    background: var(--secondary-background-color);
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+@media (max-width: 1200px) {
+
+    .signUpForm {
+        width: 350px;
+        margin-top: 200px;
+    }
+
 }

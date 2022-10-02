@@ -9,7 +9,7 @@
 .signInForm {
     display: flex;
     flex-direction: column;
-    width: 350px;
+    width: 300px;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 1px 1px 4px 4px var(--secondary-background-color);
@@ -25,7 +25,7 @@
 }
 
 .formLabel {
-    margin: 20px 0 5px 0;
+    margin: 41px 0 5px 0;
 }
 
 .signInButton {
@@ -50,7 +50,7 @@
 }
 
 .switchWrapper a {
-    color: var(--secondary-background-color-color)
+    color: var(--secondary-background-color);
 }
 
 .switchWrapper a:hover {
@@ -79,4 +79,12 @@
     background: var(--secondary-background-color);
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
+}
+
+@media (max-width: 1200px) {
+
+    .signInForm {
+        margin: 280px 0 70px 0;
+    }
+
 }
