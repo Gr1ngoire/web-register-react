@@ -1,0 +1,21 @@
+.quoteWrapper {
+    display: flex;
+    flex-grow: 1;
+    padding: 10px;
+}
+
+.question {
+    background: var(--primary-background-color);
+    border: 1px solid var(--question-answer-background-color);
+    border-radius: 10px;
+}
+
+.answer {
+    border-radius: 10px;
+    background: var(--question-answer-background-color);
+}
+
+.content {
+    margin: 0;
+    padding: 20px;
+}

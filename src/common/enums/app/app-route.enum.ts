@@ -2,7 +2,7 @@ enum AppRoutes {
     root = '/',
     signIn = '/sign-in',
     signUp = '/sign-up',
-    faq = '/fag',
+    faq = '/faq',
     contacts = '/contacts',
     students = '/students'
 }

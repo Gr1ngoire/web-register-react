@@ -1,0 +1,1 @@
+export {type QuestionItemDto} from './question.type'

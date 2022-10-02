@@ -1,0 +1,26 @@
+.faqWrapper {
+    margin: 100px 0 30px 0;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.answersQuestionsSection {
+    max-width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.answersQuestionsWrapper {
+    margin-top: 50px;
+}
+
+@media (max-width: 1200px) {
+    .faqWrapper {
+        margin-top: 120px;
+    }
+}
