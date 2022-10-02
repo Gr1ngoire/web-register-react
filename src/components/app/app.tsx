@@ -7,6 +7,7 @@ import './styles.css'
 import {Header} from "../common/header/header";
 import {Footer} from "../common/footer/footer";
 import {Faq} from "../faq/faq";
+import {Contacts} from "../contacts/contacts";
 
 function App() {
     return (
@@ -15,6 +16,7 @@ function App() {
             <Routes>
                 <Route path={AppRoutes.root} element={<News/>}/>
                 <Route path={AppRoutes.faq} element={<Faq/>}/>
+                <Route path={AppRoutes.contacts} element={<Contacts/>}/>
             </Routes>
             <Footer/>
         </>

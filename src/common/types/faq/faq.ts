@@ -1,1 +1,1 @@
-export {type QuestionItemDto} from './question.type'
+export {type QuestionItemDto} from './question-item-dto.type'

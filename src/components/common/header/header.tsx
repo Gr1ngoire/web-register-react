@@ -15,9 +15,9 @@ const Header: FC = () => {
             <div className={styles.nameWrapper}><h4>Kyiv Polytechnic Institute</h4></div>
         </div>
         <div className={styles.headerHoverSections}>
-            <h5><a className={styles.headerAnchor} target="_blank" href="#">Головна</a></h5>
+            <h5><Link className={styles.headerAnchor} to={AppRoutes.root}>Головна</Link></h5>
             <h5><a className={styles.headerAnchor} target="_blank" href="#">Успішність</a></h5>
-            <h5><a className={styles.headerAnchor} target="_blank" href="#">Контакти</a></h5>
+            <h5><Link className={styles.headerAnchor} to={AppRoutes.contacts}>Контакти</Link></h5>
             <h5><Link className={styles.headerAnchor} to={AppRoutes.faq}>FAQ</Link></h5>
         </div>
     </header>

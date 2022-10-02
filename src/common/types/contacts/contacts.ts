@@ -1,0 +1,1 @@
+export {type ContactItemDto} from './contact-item-dto.type'

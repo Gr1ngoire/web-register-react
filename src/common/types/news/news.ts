@@ -1,1 +1,1 @@
-export {type NewsItemDto} from './news.type'
+export {type NewsItemDto} from './news-item-dto.type'
