@@ -19,6 +19,7 @@ const Header: FC = () => {
             <h5><Link className={styles.headerAnchor} to={AppRoutes.students}>Успішність</Link></h5>
             <h5><Link className={styles.headerAnchor} to={AppRoutes.contacts}>Контакти</Link></h5>
             <h5><Link className={styles.headerAnchor} to={AppRoutes.faq}>FAQ</Link></h5>
+            <h5><Link className={styles.headerAnchor} to={AppRoutes.signIn}>Вхід</Link></h5>
         </div>
     </header>
 }

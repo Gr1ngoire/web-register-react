@@ -47,7 +47,7 @@ const Students: FC = () => {
 
     return <div className={styles.studentsWrapper}>
         <div className={styles.tableWrapper}>
-            <table className={styles.studentsTable} border={1} frame rules={"rows"}>
+            <table className={styles.studentsTable} border={1} rules={"rows"}>
                 <thead>
                 <tr>
                     <th>Email</th>
