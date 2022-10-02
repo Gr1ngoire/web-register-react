@@ -1,6 +1,8 @@
 import {FC} from "react";
 
 import styles from './styles.module.css'
+import {Link} from "react-router-dom";
+import {AppRoutes} from "../../../common/enums/enums";
 
 const Header: FC = () => {
     return <header className={styles.header}>
@@ -16,7 +18,7 @@ const Header: FC = () => {
             <h5><a className={styles.headerAnchor} target="_blank" href="#">Головна</a></h5>
             <h5><a className={styles.headerAnchor} target="_blank" href="#">Успішність</a></h5>
             <h5><a className={styles.headerAnchor} target="_blank" href="#">Контакти</a></h5>
-            <h5><a className={styles.headerAnchor} target="_blank" href="#">FAQ</a></h5>
+            <h5><Link className={styles.headerAnchor} to={AppRoutes.faq}>FAQ</Link></h5>
         </div>
     </header>
 }
