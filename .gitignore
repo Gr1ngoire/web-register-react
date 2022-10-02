@@ -11,6 +11,9 @@
 # production
 /build
 
+# Lab Report
+Report_Lab04_Kovtun_N_O.docx
+
 # misc
 .DS_Store
 .env.local
