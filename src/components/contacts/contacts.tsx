@@ -11,6 +11,14 @@ const Contacts: FC = () => {
         {id: 2, name: "Пан Декан", phoneNumber: "88005553535"},
         {id: 3, name: "Пан Ректор", phoneNumber: "88005553535"},
         {id: 4, name: "Пан Декан", phoneNumber: "88005553535"},
+        {id: 5, name: "Пан Ректор", phoneNumber: "88005553535"},
+        {id: 6, name: "Пан Декан", phoneNumber: "88005553535"},
+        {id: 7, name: "Пан Ректор", phoneNumber: "88005553535"},
+        {id: 8, name: "Пан Декан", phoneNumber: "88005553535"},
+        {id: 9, name: "Пан Ректор", phoneNumber: "88005553535"},
+        {id: 10, name: "Пан Декан", phoneNumber: "88005553535"},
+        {id: 11, name: "Пан Ректор", phoneNumber: "88005553535"},
+        {id: 12, name: "Пан Декан", phoneNumber: "88005553535"},
     ]
 
     return <div className={styles.contacts}>

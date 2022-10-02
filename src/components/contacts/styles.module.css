@@ -8,7 +8,7 @@
 
 .contactsWrapper {
     width: 40%;
-    margin-top: 100px;
+    margin: 100px 0 20px 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -27,31 +27,12 @@
     border-bottom: 1px solid #ffffff;
 }
 
-footer {
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-}
-
 @media (max-width: 1201px) {
 
     .contactsWrapper {
         margin: 200px 0 20px 0;
     }
 
-    footer {
-        width: 100%;
-        position: fixed;
-        bottom: 0;
-    }
-}
-
-@media (min-width: 737px) and (max-width: 1200px) {
-
-    footer {
-        width: 100%;
-        position: fixed !important;
-    }
 }
 
 @media (max-width: 736px) {
