@@ -15,7 +15,7 @@ const SignIn: FC = () => {
             <button className={styles.signInButton} type="submit">Увійти</button>
             <div className={styles.switchWrapper}>
                 <p className={styles.switch}>Не маєте акаунту?</p>
-                <button type="button"><Link to={AppRoutes.signUp}>Реєстрація</Link></button>
+                <Link to={AppRoutes.signUp}><button type="button">Реєстрація</button></Link>
             </div>
         </form>
     </div>
