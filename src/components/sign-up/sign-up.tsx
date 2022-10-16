@@ -9,9 +9,14 @@ import {RegistrationErrors} from "./common/types/types";
 import {defaultErrorsValues} from "./common/default-errors-values";
 import {SignUpValidator} from "../../validation/sign-up/sign-up.validator";
 
+type ActionRow = {
+    status: boolean;
+    data: UserRegisterData;
+}
+
 const SignUp: FC = () => {
     const validator = new SignUpValidator();
-    const [tableData, setTableData] = useState<UserRegisterData[]>([]);
+    const [tableData, setTableData] = useState<ActionRow[]>([]);
     const [userData, setUserData] = useState<UserRegisterData>(defaultUserDataValues);
     const [errors, setErrors] = useState<RegistrationErrors>(defaultErrorsValues);
     const [isRegistrationLocked, setIsRegistrationLocked] = useState<boolean>(true);
@@ -63,8 +68,32 @@ const SignUp: FC = () => {
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        setTableData(prevState => ([...prevState, userData]))
+        setTableData(prevState => ([...prevState, {status: false, data: userData}]))
         resetData();
+    }
+
+    const handleStatusChange = (email: string) => (event: ChangeEvent<HTMLInputElement>) => {
+        setTableData((prevState) => {
+            const updatedActionRows = tableData.filter((el => el.data.email === email)) as ActionRow[];
+            updatedActionRows.forEach((row) => {
+                row.status = event.target.checked
+            })
+            return [...prevState];
+        })
+    }
+
+    const resetStatuses = () => {
+        setTableData(prevState => [...prevState.map((row) => ({...row, status: false}))])
+    }
+
+    const handleDeleteSelected = () => {
+        setTableData(prevState => [...prevState.filter((row) => !row.status)])
+        resetStatuses();
+    }
+
+    const handleCopySelected = () => {
+        setTableData(prevState => [...prevState, ...prevState.filter((row) => row.status)])
+        resetStatuses();
     }
 
 
@@ -136,44 +165,65 @@ const SignUp: FC = () => {
                 </Link>
             </div>
         </form>
-        <table className={styles.dataTable} border={1} rules={"rows"}>
-            <thead>
-            <tr>
-                <th>Email</th>
-                <th>Ім'я</th>
-                <th>Прізвище</th>
-                <th>По-батькові</th>
-                <th>Група</th>
-                <th>Дата народження</th>
-                <th>Номер телефону</th>
-                <th>Пароль</th>
-                <th>Стать</th>
-            </tr>
-            </thead>
-            <tbody>
-            {tableData.map(({
-                                email,
-                                name,
-                                surname,
-                                secondName,
-                                group,
-                                birthDate,
-                                phoneNumber,
-                                password,
-                                gender
-                            }, index) => <tr key={index}>
-                <td>{email}</td>
-                <td>{name}</td>
-                <td>{surname}</td>
-                <td>{secondName}</td>
-                <td>{group}</td>
-                <td>{birthDate}</td>
-                <td>{phoneNumber}</td>
-                <td>{password}</td>
-                <td>{gender}</td>
-            </tr>)}
-            </tbody>
-        </table>
+        <div className={styles.tableWrapper}>
+            <div className={styles.actionSection}>
+                <button className={styles.actionButton} type="button" onClick={handleDeleteSelected}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                         className="bi bi-trash-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                    </svg>
+                </button>
+                <button className={styles.actionButton} type="button" onClick={handleCopySelected}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                         className="bi bi-clipboard-fill" viewBox="0 0 16 16">
+                        <path fillRule="evenodd"
+                              d="M10 1.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-1Zm-5 0A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5v1A1.5 1.5 0 0 1 9.5 4h-3A1.5 1.5 0 0 1 5 2.5v-1Zm-2 0h1v1A2.5 2.5 0 0 0 6.5 5h3A2.5 2.5 0 0 0 12 2.5v-1h1a2 2 0 0 1 2 2V14a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V3.5a2 2 0 0 1 2-2Z"/>
+                    </svg>
+                </button>
+            </div>
+            <table className={styles.dataTable} border={1} rules={"rows"}>
+                <thead>
+                <tr>
+                    <th>Email</th>
+                    <th>Ім'я</th>
+                    <th>Прізвище</th>
+                    <th>По-батькові</th>
+                    <th>Група</th>
+                    <th>Дата народження</th>
+                    <th>Номер телефону</th>
+                    <th>Пароль</th>
+                    <th>Стать</th>
+                </tr>
+                </thead>
+                <tbody>
+                {tableData.map(({
+                                    status, data: {
+                        email,
+                        name,
+                        surname,
+                        secondName,
+                        group,
+                        birthDate,
+                        phoneNumber,
+                        password,
+                        gender
+                    }
+                                }, index) => <tr key={index}>
+                    <td><input type="checkbox" checked={status} onChange={handleStatusChange(email)}/></td>
+                    <td>{email}</td>
+                    <td>{name}</td>
+                    <td>{surname}</td>
+                    <td>{secondName}</td>
+                    <td>{group}</td>
+                    <td>{birthDate}</td>
+                    <td>{phoneNumber}</td>
+                    <td>{password}</td>
+                    <td>{gender}</td>
+                </tr>)}
+                </tbody>
+            </table>
+        </div>
     </div>
 }
 
