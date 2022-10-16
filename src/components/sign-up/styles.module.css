@@ -115,6 +115,20 @@
     color: firebrick;
 }
 
+.dataTable {
+    width: 50%;
+    padding: 40px 40px 40px 40px;
+    text-align: left;
+}
+
+.dataTable th {
+    padding: 10px;
+}
+
+.dataTable td {
+    padding: 10px;
+}
+
 @media (max-width: 1200px) {
 
     .signUpForm {
