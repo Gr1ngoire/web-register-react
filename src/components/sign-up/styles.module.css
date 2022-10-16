@@ -99,6 +99,22 @@
     margin-left: 10px;
 }
 
+.locked {
+    background: var(--secondary-background-color);
+    color: white;
+    transition: 0.2s;
+    opacity: 0.75;
+}
+
+.locked:hover {
+    cursor: default;
+}
+
+.errorLabel {
+    padding: 5px;
+    color: firebrick;
+}
+
 @media (max-width: 1200px) {
 
     .signUpForm {

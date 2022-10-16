@@ -1,0 +1,1 @@
+export {type RegistrationErrors} from './registration-errors.type';
