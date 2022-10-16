@@ -99,6 +99,62 @@
     margin-left: 10px;
 }
 
+.locked {
+    background: var(--secondary-background-color);
+    color: white;
+    transition: 0.2s;
+    opacity: 0.75;
+}
+
+.locked:hover {
+    cursor: default;
+}
+
+.errorLabel {
+    padding: 5px;
+    color: firebrick;
+}
+
+.dataTable {
+    width: 100%;
+    margin: 20px;
+    padding: 40px 40px 40px 40px;
+    text-align: left;
+}
+
+.dataTable th {
+    padding: 10px;
+}
+
+.dataTable td {
+    padding: 10px;
+}
+
+.tableWrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.actionSection {
+    display: flex;
+    margin-left: 20px;
+}
+
+.actionButton {
+    margin-left: 5px;
+    padding: 10px 20px;
+    color: var(--secondary-background-color);
+    background: var(--primary-background-color);
+    border: 2px solid var(--secondary-background-color);
+    border-radius: 10px;
+}
+
+.actionButton:hover {
+    cursor: pointer;
+    color: var(--primary-background-color);
+    background: var(--secondary-background-color);
+}
+
 @media (max-width: 1200px) {
 
     .signUpForm {

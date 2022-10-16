@@ -1,6 +1,4 @@
-type StudentGroup = 'IA-11' | 'IA-12' | 'IA-13' | 'IA-14'
-
-type UserRegisterData = {
+type RegistrationErrors = {
     email: string;
     phoneNumber: string;
     name: string;
@@ -8,8 +6,8 @@ type UserRegisterData = {
     secondName: string;
     gender: string;
     birthDate: string;
-    group: StudentGroup;
+    group: string;
     password: string;
 }
 
-export {type UserRegisterData};
+export {type RegistrationErrors};
