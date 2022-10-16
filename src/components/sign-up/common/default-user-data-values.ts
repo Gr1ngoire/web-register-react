@@ -6,7 +6,7 @@ const defaultUserDataValues: UserRegisterData = {
     name: '',
     surname: '',
     secondName: '',
-    gender: 'male',
+    gender: '',
     birthDate: '',
     group: 'IA-11',
     password: '',
