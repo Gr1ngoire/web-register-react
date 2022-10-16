@@ -82,6 +82,23 @@
     border-bottom-left-radius: 20px;
 }
 
+.genderSection {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0;
+    padding: 0;
+}
+
+.genderSectionFraction {
+    display: flex;
+    align-items: center;
+}
+
+.genderOptionLabel {
+    margin-left: 10px;
+}
+
 @media (max-width: 1200px) {
 
     .signUpForm {

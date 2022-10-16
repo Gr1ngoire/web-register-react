@@ -1,0 +1,1 @@
+export {type UserRegisterData} from './user-register-data.type'
