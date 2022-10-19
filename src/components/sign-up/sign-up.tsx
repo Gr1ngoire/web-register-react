@@ -1,5 +1,6 @@
-import {ChangeEvent, FC, FormEvent, useMemo, useState} from "react";
+import {ChangeEvent, FC, FormEvent, useState} from "react";
 import {Link} from "react-router-dom";
+import PhoneInput from "react-phone-number-input/input";
 
 import styles from './styles.module.css'
 import {AppRoutes} from "../../common/enums/app/app-route.enum";
@@ -35,35 +36,32 @@ const SignUp: FC = () => {
         });
     }
 
-    const handleChangeFormState = (event: ChangeEvent<HTMLInputElement>): void => {
+    const handleFormStateChange = (name: string, value: string) => {
         setUserData(prevState => {
-            const nextState = {...prevState, [event.target.name]: event.target.value}
+            const nextState = {...prevState, [name]: value}
             try {
-                validator.validateField(event.target.name, event.target.value);
+                validator.validateField(name, value);
                 const isFormInvalid = Object.values(userData).some((el) => !Boolean(el));
                 setIsRegistrationLocked(isFormInvalid);
-                setErrors(prevState => ({...prevState, [event.target.name]: ''}));
+                setErrors(prevState => ({...prevState, [name]: ''}));
             } catch (e) {
-                setErrors(prevState => ({...prevState, [event.target.name]: (e as Error).message}));
                 setIsRegistrationLocked(true);
+                setErrors(prevState => ({...prevState, [name]: (e as Error).message}));
             }
             return nextState;
         });
     }
 
+    const handlePhoneNumberChange = (value?: any): void => {
+       handleFormStateChange('phoneNumber', `${value}`);
+    }
+
+    const handleAllParamsFormStateChange = (event: ChangeEvent<HTMLInputElement>): void => {
+        handleFormStateChange(event.target.name, event.target.value);
+    }
+
     const handleChangeGroup = (event: ChangeEvent<HTMLSelectElement>): void => {
-        setUserData(prevState => {
-            const nextState = {...prevState, [event.target.name]: event.target.value}
-            try {
-                validator.validateField('group', event.target.value);
-                const isFormInvalid = Object.values(userData).some((el) => !Boolean(el));
-                setIsRegistrationLocked(isFormInvalid)
-            } catch (e) {
-                setIsRegistrationLocked(true);
-                setErrors(prevState => ({...prevState, [event.target.name]: (e as Error).message}));
-            }
-            return nextState
-        });
+        handleFormStateChange(event.target.name, event.target.value)
     }
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
@@ -101,46 +99,48 @@ const SignUp: FC = () => {
         <form className={styles.signUpForm} onSubmit={handleSubmit}>
             <h3 className={styles.formHeading}>Реєстрація</h3>
             <label className={styles.formLabel}>Email</label>
-            <input placeholder="Ваш email" type="email" name="email" onChange={handleChangeFormState}
+            <input placeholder="Ваш email" type="email" name="email" onChange={handleAllParamsFormStateChange}
                    value={userData.email}/>
             <label className={styles.errorLabel}>{errors.email}</label>
             <label className={styles.formLabel}>Номер телефону</label>
-            <input placeholder="+38(0__)-___-__-__" type="tel" name="phoneNumber" onChange={handleChangeFormState}
-                   value={userData.phoneNumber}/>
+            <PhoneInput
+                placeholder="+380 __ ___ ____"
+                value={userData.phoneNumber}
+                onChange={handlePhoneNumberChange}/>
             <label className={styles.errorLabel}>{errors.phoneNumber}</label>
             <label className={styles.formLabel}>Ім'я</label>
-            <input placeholder="Ваше ім'я" type="text" name="name" onChange={handleChangeFormState}
+            <input placeholder="Ваше ім'я" type="text" name="name" onChange={handleAllParamsFormStateChange}
                    value={userData.name}/>
             <label className={styles.errorLabel}>{errors.name}</label>
             <label className={styles.formLabel}>Прізвище</label>
-            <input placeholder="Ваше прізвище" type="text" name="surname" onChange={handleChangeFormState}
+            <input placeholder="Ваше прізвище" type="text" name="surname" onChange={handleAllParamsFormStateChange}
                    value={userData.surname}/>
             <label className={styles.errorLabel}>{errors.surname}</label>
             <label className={styles.formLabel}>По-батькові</label>
-            <input placeholder="Ваше по-батькові" type="text" name="secondName" onChange={handleChangeFormState}
+            <input placeholder="Ваше по-батькові" type="text" name="secondName" onChange={handleAllParamsFormStateChange}
                    value={userData.secondName}/>
             <label className={styles.errorLabel}>{errors.secondName}</label>
             <ul className={styles.genderSection}>
                 <label className={styles.formLabel}>Стать</label>
                 <div className={styles.genderSectionFraction}>
                     <input placeholder="Ваше по-батькові" type="radio" value="male" name="gender"
-                           onChange={handleChangeFormState}/>
+                           onChange={handleAllParamsFormStateChange}/>
                     <label className={styles.genderOptionLabel}>Чоловіча</label>
                 </div>
                 <div className={styles.genderSectionFraction}>
                     <input placeholder="Ваше по-батькові" type="radio" value="female" name="gender"
-                           onChange={handleChangeFormState}/>
+                           onChange={handleAllParamsFormStateChange}/>
                     <label className={styles.genderOptionLabel}>Жіноча</label>
                 </div>
                 <div className={styles.genderSectionFraction}>
                     <input placeholder="Ваше по-батькові" type="radio" value="other" name="gender"
-                           onChange={handleChangeFormState}/>
+                           onChange={handleAllParamsFormStateChange}/>
                     <label className={styles.genderOptionLabel}>Інше</label>
                 </div>
             </ul>
             <label className={styles.errorLabel}>{errors.gender}</label>
             <label className={styles.formLabel}>Дата народження</label>
-            <input placeholder="Ваша дата народження" type="date" name="birthDate" onChange={handleChangeFormState}
+            <input placeholder="Ваша дата народження" type="date" name="birthDate" onChange={handleAllParamsFormStateChange}
                    value={userData.birthDate}/>
             <label className={styles.errorLabel}>{errors.birthDate}</label>
             <label className={styles.formLabel}>Оберіть вашу групу</label>
@@ -152,7 +152,7 @@ const SignUp: FC = () => {
             </select>
             <label className={styles.errorLabel}>{errors.group}</label>
             <label className={styles.formLabel}>Пароль</label>
-            <input placeholder="Ваш пароль" type="password" name="password" onChange={handleChangeFormState}
+            <input placeholder="Ваш пароль" type="password" name="password" onChange={handleAllParamsFormStateChange}
                    value={userData.password}/>
             <label className={styles.errorLabel}>{errors.password}</label>
             <button className={`${styles.signUpButton} ${isRegistrationLocked && styles.locked}`}
@@ -185,6 +185,7 @@ const SignUp: FC = () => {
             <table className={styles.dataTable} border={1} rules={"rows"}>
                 <thead>
                 <tr>
+                    <th>Selected</th>
                     <th>Email</th>
                     <th>Ім'я</th>
                     <th>Прізвище</th>

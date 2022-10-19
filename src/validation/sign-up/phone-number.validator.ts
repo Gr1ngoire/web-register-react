@@ -2,7 +2,8 @@ import {Validator} from "../validator";
 
 class PhoneNumberValidator extends Validator {
 
-    private UKRAINIAN_PHONE_NUMBER_DEFAULT_FORMAT = /\+380(\d{2})(\d{3})(\d{2})(\d{2})/g
+    private UKRAINIAN_PHONE_NUMBER_DEFAULT_FORMAT = /\+380(\d{9})/g
+    private UKRAINIAN_PHONE_NUMBER_DEFAULT_LENGTH = 13;
 
     validate(value: string) {
         this.validateZeroLength(value);
@@ -16,8 +17,8 @@ class PhoneNumberValidator extends Validator {
     }
 
     private validateFormat(value: string): void {
-        if (!value.match(this.UKRAINIAN_PHONE_NUMBER_DEFAULT_FORMAT)) {
-            throw new Error('Номер телефону має бути у форматі, зазначеним у полі вводе телефону');
+        if (!value.match(this.UKRAINIAN_PHONE_NUMBER_DEFAULT_FORMAT) || value.length !== this.UKRAINIAN_PHONE_NUMBER_DEFAULT_LENGTH) {
+            throw new Error('Номер телефону має бути у форматі, зазначеним у полі вводу телефону');
         }
     }
 }
