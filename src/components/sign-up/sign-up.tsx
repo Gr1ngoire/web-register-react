@@ -23,17 +23,17 @@ const SignUp: FC = () => {
     const [isRegistrationLocked, setIsRegistrationLocked] = useState<boolean>(true);
 
     const resetData = () => {
-        setUserData({
+        setUserData(prevState => ({
             email: '',
             phoneNumber: '',
             name: '',
             surname: '',
             secondName: '',
-            gender: '',
-            group: 'IA-11',
+            gender: prevState.gender,
+            group: prevState.group,
             birthDate: '',
             password: ''
-        });
+        }));
     }
 
     const handleFormStateChange = (name: string, value: string) => {
@@ -68,6 +68,7 @@ const SignUp: FC = () => {
         e.preventDefault();
         setTableData(prevState => ([...prevState, {status: false, data: userData}]))
         resetData();
+        setIsRegistrationLocked(true);
     }
 
     const handleStatusChange = (email: string) => (event: ChangeEvent<HTMLInputElement>) => {
