@@ -6,7 +6,6 @@ class PhoneNumberValidator extends Validator {
     private UKRAINIAN_PHONE_NUMBER_DEFAULT_LENGTH = 13;
 
     validate(value: string) {
-        console.log(value)
         this.validateZeroLength(value);
         this.validateFormat(value);
     }
@@ -21,7 +20,6 @@ class PhoneNumberValidator extends Validator {
         if (!value.match(this.UKRAINIAN_PHONE_NUMBER_DEFAULT_FORMAT) || value.length !== this.UKRAINIAN_PHONE_NUMBER_DEFAULT_LENGTH) {
             throw new Error('Номер телефону має бути у форматі, зазначеним у полі вводу телефону');
         }
-        console.log("OK")
     }
 }
 
